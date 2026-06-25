@@ -110,9 +110,9 @@ img {
 }
 
 .logo-trail {
-  left: -26%;
-  top: 58%;
-  width: 152%;
+  left: -18%;
+  top: 66%;
+  width: 138%;
   height: 18%;
   border-top: max(1px, calc(var(--logo-size) * 0.015)) solid rgba(40, 225, 255, 0.85);
   border-radius: 50%;
@@ -120,19 +120,19 @@ img {
     0 -2px 0 rgba(141, 44, 255, 0.52),
     0 0 18px rgba(0, 163, 255, 0.65);
   opacity: 0.84;
-  transform: translateZ(-24px) rotate(-13deg);
+  transform: translateZ(-24px) rotate(-12deg);
   transition: transform 340ms ease, opacity 240ms ease;
 }
 
 .logo-c {
-  left: 5%;
-  top: 18%;
-  width: 52%;
-  height: 52%;
+  left: 10%;
+  top: 9%;
+  width: 58%;
+  height: 58%;
   border: calc(var(--logo-size) * 0.105) solid #f8f6ff;
   border-right-color: transparent;
   border-radius: 50%;
-  transform: translateZ(32px) rotate(-13deg);
+  transform: translateZ(32px) rotate(-9deg);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.15),
     0 0 18px rgba(255, 255, 255, 0.12);
@@ -140,47 +140,49 @@ img {
 }
 
 .logo-d-shadow {
-  left: 50%;
+  left: 49%;
   top: 31%;
-  width: 14%;
-  height: 18%;
+  width: 18%;
+  height: 22%;
   background: #05030a;
-  transform: translateZ(10px) translate(-6%, -34%);
+  transform: translateZ(10px) translate(-8%, -38%);
   transition: transform 300ms ease;
 }
 
 .logo-d {
-  left: 44%;
-  top: 35%;
-  width: 42%;
-  height: 45%;
+  left: 42%;
+  top: 33%;
+  width: 47%;
+  height: 49%;
   background:
-    linear-gradient(125deg, rgba(255, 255, 255, 0.2), transparent 30%),
-    linear-gradient(145deg, #9b22ff 0%, #772eff 34%, #2875ff 70%, #04a8ff 100%);
-  clip-path: polygon(0 0, 62% 0, 100% 28%, 100% 100%, 4% 100%);
-  transform: translateZ(58px) translate(calc(var(--mx) * 4px), calc(var(--my) * 3px));
+    linear-gradient(130deg, rgba(255, 255, 255, 0.24), transparent 26%),
+    linear-gradient(145deg, #9d18ff 0%, #7a21ff 34%, #2f63ff 68%, #04a8ff 100%);
+  border-radius: 0 48% 48% 0;
+  clip-path: polygon(0 21%, 23% 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateZ(58px) translate(calc(var(--mx) * 3px), calc(var(--my) * 2px));
   box-shadow:
-    inset calc(var(--logo-size) * 0.09) 0 0 rgba(255, 255, 255, 0.05),
-    calc(var(--logo-size) * -0.035) calc(var(--logo-size) * 0.035) 0 rgba(3, 3, 12, 0.92),
-    0 0 calc(var(--logo-size) * 0.11) rgba(0, 163, 255, 0.38);
+    inset calc(var(--logo-size) * 0.12) 0 0 rgba(6, 156, 255, 0.54),
+    calc(var(--logo-size) * -0.028) calc(var(--logo-size) * 0.028) 0 rgba(3, 3, 12, 0.9),
+    0 0 calc(var(--logo-size) * 0.12) rgba(0, 163, 255, 0.4);
   transition: transform 260ms ease, box-shadow 260ms ease, filter 240ms ease;
 }
 
 .logo-d-cut {
   left: 57%;
-  top: 51%;
-  width: 17%;
-  height: 24%;
+  top: 47%;
+  width: 18%;
+  height: 27%;
   background: #020206;
-  clip-path: polygon(0 0, 52% 0, 100% 27%, 100% 100%, 8% 100%);
-  transform: translateZ(74px) translate(calc(var(--mx) * 5px), calc(var(--my) * 4px));
+  border-radius: 0 46% 46% 0;
+  clip-path: polygon(0 0, 72% 0, 100% 24%, 100% 100%, 0 100%);
+  transform: translateZ(74px) translate(calc(var(--mx) * 3px), calc(var(--my) * 2px));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: transform 260ms ease;
 }
 
 .logo-glint {
-  left: 45%;
-  top: 35%;
+  left: 43%;
+  top: 34%;
   width: 40%;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
@@ -206,17 +208,17 @@ img {
 
 .interactive-logo:hover .logo-c {
   filter: brightness(1.08);
-  transform: translateZ(42px) rotate(-8deg) translateX(-2%);
+  transform: translateZ(42px) rotate(-6deg) translateX(-1.5%);
 }
 
 .interactive-logo:hover .logo-d-shadow {
-  transform: translateZ(8px) translate(-18%, -44%);
+  transform: translateZ(8px) translate(-15%, -42%);
 }
 
 .interactive-logo:hover .logo-d {
   box-shadow:
-    inset calc(var(--logo-size) * 0.09) 0 0 rgba(255, 255, 255, 0.08),
-    calc(var(--logo-size) * -0.055) calc(var(--logo-size) * 0.05) 0 rgba(3, 3, 12, 0.94),
+    inset calc(var(--logo-size) * 0.12) 0 0 rgba(6, 156, 255, 0.62),
+    calc(var(--logo-size) * -0.04) calc(var(--logo-size) * 0.04) 0 rgba(3, 3, 12, 0.94),
     0 0 calc(var(--logo-size) * 0.16) rgba(0, 163, 255, 0.48);
 }
 
