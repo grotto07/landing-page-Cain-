@@ -31,6 +31,7 @@ body {
     radial-gradient(circle at 88% 34%, rgba(0, 163, 255, 0.16), transparent 20rem),
     linear-gradient(180deg, #000 0%, var(--bg) 42%, #030309 100%);
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -41,6 +42,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .site-header {
@@ -55,6 +57,7 @@ img {
   justify-content: space-between;
   transform: translateX(-50%);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .brand {
@@ -79,6 +82,7 @@ img {
   transform-style: preserve-3d;
   transition: transform 240ms ease, filter 240ms ease;
   filter: drop-shadow(0 0 18px rgba(141, 44, 255, 0.36));
+  will-change: transform;
 }
 
 .logo-mark-small {
@@ -86,7 +90,7 @@ img {
 }
 
 .logo-mark-hero {
-  --logo-size: clamp(250px, 28vw, 390px);
+  --logo-size: clamp(230px, 28vw, 390px);
   filter: drop-shadow(0 0 42px rgba(141, 44, 255, 0.44));
 }
 
@@ -412,8 +416,8 @@ p::selection {
 
 .light-wave {
   position: absolute;
-  right: -10%;
-  left: 2%;
+  right: 0;
+  left: 0;
   height: 180px;
   border-radius: 50%;
   filter: blur(1px);
@@ -724,11 +728,11 @@ p::selection {
 }
 
 .prev {
-  left: -12px;
+  left: 8px;
 }
 
 .next {
-  right: -12px;
+  right: 8px;
 }
 
 .carousel-dots {
@@ -1024,6 +1028,10 @@ p::selection {
     min-height: 360px;
   }
 
+  .orbital {
+    width: min(420px, 86vw);
+  }
+
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1060,8 +1068,81 @@ p::selection {
 }
 
 @media (max-width: 620px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(141, 44, 255, 0.18), transparent 22rem),
+      linear-gradient(180deg, #000 0%, var(--bg) 48%, #030309 100%);
+  }
+
+  .site-header {
+    width: min(100% - 24px, var(--max));
+    height: 66px;
+  }
+
+  .logo-mark-small {
+    --logo-size: 46px;
+  }
+
   .brand-text {
     display: none;
+  }
+
+  .site-nav {
+    top: 66px;
+    right: 12px;
+    left: 12px;
+    min-width: 0;
+  }
+
+  .section {
+    width: min(100% - 24px, var(--max));
+  }
+
+  .hero {
+    gap: 22px;
+    padding-top: 104px;
+    padding-bottom: 28px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 52px);
+    line-height: 1.04;
+  }
+
+  .hero-text {
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .hero-art {
+    min-height: 260px;
+    order: -1;
+  }
+
+  .orbital {
+    width: min(305px, 86vw);
+  }
+
+  .logo-mark-hero {
+    --logo-size: min(220px, 62vw);
+  }
+
+  .logo-trail {
+    left: -18%;
+    width: 136%;
+  }
+
+  .light-wave {
+    height: 92px;
+    opacity: 0.72;
+  }
+
+  .wave-one {
+    top: 57%;
+  }
+
+  .wave-two {
+    top: 65%;
   }
 
   .hero-actions {
@@ -1078,9 +1159,57 @@ p::selection {
     grid-template-columns: 1fr;
   }
 
+  .services {
+    padding-top: 18px;
+  }
+
   .service-card,
   .contact-card {
     padding: 24px;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .about {
+    gap: 28px;
+    padding: 30px 0 42px;
+  }
+
+  .mock-board,
+  .mock-board img {
+    min-height: 260px;
+  }
+
+  .mock-card {
+    right: 14px;
+    bottom: 14px;
+    width: calc(100% - 28px);
+    padding: 14px;
+  }
+
+  .about-floating {
+    min-width: 94px;
+    min-height: 36px;
+    font-size: 11px;
+  }
+
+  .about-floating-one {
+    left: 14px;
+    top: 14px;
+  }
+
+  .about-floating-two {
+    right: 14px;
+    top: 58px;
+  }
+
+  .carousel-btn {
+    top: 35%;
+    width: 38px;
+    height: 38px;
+    font-size: 26px;
   }
 
   .contact-card {
@@ -1088,7 +1217,31 @@ p::selection {
   }
 
   .social-links {
-    grid-template-columns: repeat(4, minmax(42px, 48px));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .social-links a {
+    width: 100%;
+  }
+
+  .footer {
+    width: min(100% - 24px, var(--max));
+  }
+}
+
+@media (max-width: 380px) {
+  .btn {
+    padding-inline: 16px;
+    font-size: 11px;
+  }
+
+  .logo-mark-hero {
+    --logo-size: min(198px, 60vw);
+  }
+
+  .orbital {
+    width: min(278px, 84vw);
   }
 }
 

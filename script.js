@@ -10,6 +10,8 @@ const interactiveLogos = [...document.querySelectorAll(".interactive-logo")];
 let activeProject = 0;
 let carouselTimer;
 let ticking = false;
+const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 navToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
@@ -48,6 +50,7 @@ function setActiveProject(index) {
 
 function restartCarousel() {
   window.clearInterval(carouselTimer);
+  if (reduceMotion) return;
   carouselTimer = window.setInterval(() => setActiveProject(activeProject + 1), 4200);
 }
 
@@ -89,20 +92,22 @@ const sectionObserver = new IntersectionObserver(
 
 document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
 
-interactiveLogos.forEach((logo) => {
-  logo.addEventListener("pointermove", (event) => {
-    const rect = logo.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    logo.style.setProperty("--mx", x.toFixed(3));
-    logo.style.setProperty("--my", y.toFixed(3));
-  });
+if (canHover && !reduceMotion) {
+  interactiveLogos.forEach((logo) => {
+    logo.addEventListener("pointermove", (event) => {
+      const rect = logo.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      logo.style.setProperty("--mx", x.toFixed(3));
+      logo.style.setProperty("--my", y.toFixed(3));
+    });
 
-  logo.addEventListener("pointerleave", () => {
-    logo.style.setProperty("--mx", "0");
-    logo.style.setProperty("--my", "0");
+    logo.addEventListener("pointerleave", () => {
+      logo.style.setProperty("--mx", "0");
+      logo.style.setProperty("--my", "0");
+    });
   });
-});
+}
 
 function updateScrollMotion() {
   const depth = Math.min(window.scrollY / 520, 1);
@@ -115,12 +120,21 @@ function updateScrollMotion() {
 window.addEventListener(
   "scroll",
   () => {
+    if (reduceMotion) return;
     if (ticking) return;
     window.requestAnimationFrame(updateScrollMotion);
     ticking = true;
   },
   { passive: true }
 );
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    window.clearInterval(carouselTimer);
+    return;
+  }
+  restartCarousel();
+});
 
 setActiveProject(0);
 restartCarousel();
