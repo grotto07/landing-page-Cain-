@@ -6,6 +6,7 @@ const dotsWrap = document.querySelector(".carousel-dots");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const heroArt = document.querySelector(".hero-art");
+const interactiveLogos = [...document.querySelectorAll(".interactive-logo")];
 let activeProject = 0;
 let carouselTimer;
 let ticking = false;
@@ -87,6 +88,21 @@ const sectionObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+interactiveLogos.forEach((logo) => {
+  logo.addEventListener("pointermove", (event) => {
+    const rect = logo.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    logo.style.setProperty("--mx", x.toFixed(3));
+    logo.style.setProperty("--my", y.toFixed(3));
+  });
+
+  logo.addEventListener("pointerleave", () => {
+    logo.style.setProperty("--mx", "0");
+    logo.style.setProperty("--my", "0");
+  });
+});
 
 function updateScrollMotion() {
   const depth = Math.min(window.scrollY / 520, 1);
