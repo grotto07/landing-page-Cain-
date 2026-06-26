@@ -66,176 +66,51 @@ img {
   gap: 14px;
 }
 
-.logo-mark {
+.brand-logo-image,
+.hero-logo-image,
+.footer-logo-image {
   --mx: 0;
   --my: 0;
-  --logo-size: 56px;
-  position: relative;
-  display: block;
-  width: var(--logo-size);
-  height: var(--logo-size);
-  flex: 0 0 var(--logo-size);
+  object-fit: contain;
   transform:
-    perspective(720px)
-    rotateX(calc(var(--my) * -5deg))
-    rotateY(calc(var(--mx) * 7deg));
-  transform-style: preserve-3d;
-  transition: transform 240ms ease, filter 240ms ease;
-  filter: drop-shadow(0 0 18px rgba(141, 44, 255, 0.36));
+    perspective(780px)
+    rotateX(calc(var(--my) * -4deg))
+    rotateY(calc(var(--mx) * 5deg))
+    translateY(0);
+  transition: transform 240ms ease, filter 240ms ease, opacity 240ms ease;
   will-change: transform;
 }
 
-.logo-mark-small {
-  --logo-size: 56px;
+.brand-logo-image {
+  width: 176px;
+  height: 72px;
+  object-position: left center;
+  filter: drop-shadow(0 0 16px rgba(141, 44, 255, 0.28));
 }
 
-.logo-mark-hero {
-  --logo-size: clamp(230px, 28vw, 390px);
-  filter: drop-shadow(0 0 42px rgba(141, 44, 255, 0.44));
+.hero-logo-image {
+  width: min(480px, 78vw);
+  filter:
+    drop-shadow(0 0 42px rgba(141, 44, 255, 0.38))
+    drop-shadow(0 0 24px rgba(0, 163, 255, 0.2));
 }
 
-.logo-mark span {
-  position: absolute;
-  display: block;
-  pointer-events: none;
-}
-
-.logo-orbit {
-  inset: -14%;
-  border: 1px solid rgba(141, 44, 255, 0.34);
-  border-radius: 50%;
-  opacity: 0.82;
-  transform: translateZ(-36px) rotate(-12deg);
-  transition: transform 380ms ease, border-color 280ms ease;
-}
-
-.logo-trail {
-  left: -18%;
-  top: 66%;
-  width: 138%;
-  height: 18%;
-  border-top: max(1px, calc(var(--logo-size) * 0.015)) solid rgba(40, 225, 255, 0.85);
-  border-radius: 50%;
-  box-shadow:
-    0 -2px 0 rgba(141, 44, 255, 0.52),
-    0 0 18px rgba(0, 163, 255, 0.65);
-  opacity: 0.84;
-  transform: translateZ(-24px) rotate(-12deg);
-  transition: transform 340ms ease, opacity 240ms ease;
-}
-
-.logo-c {
-  left: 10%;
-  top: 9%;
-  width: 58%;
-  height: 58%;
-  border: calc(var(--logo-size) * 0.105) solid #f8f6ff;
-  border-right-color: transparent;
-  border-radius: 50%;
-  transform: translateZ(32px) rotate(-9deg);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-    0 0 18px rgba(255, 255, 255, 0.12);
-  transition: transform 280ms ease, filter 240ms ease;
-}
-
-.logo-d-shadow {
-  left: 49%;
-  top: 31%;
-  width: 18%;
-  height: 22%;
-  background: #05030a;
-  transform: translateZ(10px) translate(-8%, -38%);
-  transition: transform 300ms ease;
-}
-
-.logo-d {
-  left: 42%;
-  top: 33%;
-  width: 47%;
-  height: 49%;
-  background:
-    linear-gradient(130deg, rgba(255, 255, 255, 0.24), transparent 26%),
-    linear-gradient(145deg, #9d18ff 0%, #7a21ff 34%, #2f63ff 68%, #04a8ff 100%);
-  border-radius: 0 48% 48% 0;
-  clip-path: polygon(0 21%, 23% 0, 100% 0, 100% 100%, 0 100%);
-  transform: translateZ(58px) translate(calc(var(--mx) * 3px), calc(var(--my) * 2px));
-  box-shadow:
-    inset calc(var(--logo-size) * 0.12) 0 0 rgba(6, 156, 255, 0.54),
-    calc(var(--logo-size) * -0.028) calc(var(--logo-size) * 0.028) 0 rgba(3, 3, 12, 0.9),
-    0 0 calc(var(--logo-size) * 0.12) rgba(0, 163, 255, 0.4);
-  transition: transform 260ms ease, box-shadow 260ms ease, filter 240ms ease;
-}
-
-.logo-d-cut {
-  left: 57%;
-  top: 47%;
-  width: 18%;
-  height: 27%;
-  background: #020206;
-  border-radius: 0 46% 46% 0;
-  clip-path: polygon(0 0, 72% 0, 100% 24%, 100% 100%, 0 100%);
-  transform: translateZ(74px) translate(calc(var(--mx) * 3px), calc(var(--my) * 2px));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transition: transform 260ms ease;
-}
-
-.logo-glint {
-  left: 43%;
-  top: 34%;
-  width: 40%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  opacity: 0;
-  transform: translateZ(92px) rotate(25deg);
+.footer-logo-image {
+  width: 210px;
+  height: auto;
+  filter: drop-shadow(0 0 16px rgba(141, 44, 255, 0.22));
 }
 
 .interactive-logo:hover {
+  transform:
+    perspective(780px)
+    rotateX(calc(var(--my) * -4deg))
+    rotateY(calc(var(--mx) * 5deg))
+    translateY(-3px)
+    scale(1.015);
   filter:
-    drop-shadow(0 0 22px rgba(141, 44, 255, 0.56))
-    drop-shadow(0 0 18px rgba(0, 163, 255, 0.34));
-}
-
-.interactive-logo:hover .logo-orbit {
-  border-color: rgba(141, 44, 255, 0.58);
-  transform: translateZ(-36px) rotate(16deg) scale(1.04);
-}
-
-.interactive-logo:hover .logo-trail {
-  opacity: 1;
-  transform: translateZ(-20px) rotate(-10deg) translateY(-5%);
-}
-
-.interactive-logo:hover .logo-c {
-  filter: brightness(1.08);
-  transform: translateZ(42px) rotate(-6deg) translateX(-1.5%);
-}
-
-.interactive-logo:hover .logo-d-shadow {
-  transform: translateZ(8px) translate(-15%, -42%);
-}
-
-.interactive-logo:hover .logo-d {
-  box-shadow:
-    inset calc(var(--logo-size) * 0.12) 0 0 rgba(6, 156, 255, 0.62),
-    calc(var(--logo-size) * -0.04) calc(var(--logo-size) * 0.04) 0 rgba(3, 3, 12, 0.94),
-    0 0 calc(var(--logo-size) * 0.16) rgba(0, 163, 255, 0.48);
-}
-
-.interactive-logo:hover .logo-glint {
-  animation: logoGlint 900ms ease;
-}
-
-.brand-text {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-
-.brand-text strong {
-  color: var(--purple);
-  font-weight: 800;
+    drop-shadow(0 0 24px rgba(141, 44, 255, 0.48))
+    drop-shadow(0 0 18px rgba(0, 163, 255, 0.28));
 }
 
 .site-nav {
@@ -898,14 +773,6 @@ p::selection {
   text-align: center;
 }
 
-.footer .logo-mark-small {
-  --logo-size: 40px;
-}
-
-.footer .brand-text {
-  font-size: 13px;
-}
-
 .footer p {
   margin: 0;
   font-size: 13px;
@@ -961,20 +828,6 @@ p::selection {
   }
   50% {
     transform: translateY(-10px);
-  }
-}
-
-@keyframes logoGlint {
-  0% {
-    opacity: 0;
-    transform: translateZ(92px) translateX(-22%) rotate(25deg);
-  }
-  30% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0;
-    transform: translateZ(92px) translateX(72%) rotate(25deg);
   }
 }
 
@@ -1081,12 +934,9 @@ p::selection {
     height: 66px;
   }
 
-  .logo-mark-small {
-    --logo-size: 46px;
-  }
-
-  .brand-text {
-    display: none;
+  .brand-logo-image {
+    width: 146px;
+    height: 60px;
   }
 
   .site-nav {
@@ -1125,13 +975,8 @@ p::selection {
     width: min(305px, 86vw);
   }
 
-  .logo-mark-hero {
-    --logo-size: min(220px, 62vw);
-  }
-
-  .logo-trail {
-    left: -18%;
-    width: 136%;
+  .hero-logo-image {
+    width: min(320px, 84vw);
   }
 
   .light-wave {
@@ -1230,6 +1075,10 @@ p::selection {
   .footer {
     width: min(100% - 24px, var(--max));
   }
+
+  .footer-logo-image {
+    width: 180px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -1238,8 +1087,13 @@ p::selection {
     font-size: 11px;
   }
 
-  .logo-mark-hero {
-    --logo-size: min(198px, 60vw);
+  .brand-logo-image {
+    width: 132px;
+    height: 56px;
+  }
+
+  .hero-logo-image {
+    width: min(292px, 82vw);
   }
 
   .orbital {
