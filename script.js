@@ -9,6 +9,8 @@ const heroArt = document.querySelector(".hero-art");
 const interactiveLogos = [...document.querySelectorAll(".interactive-logo")];
 const pricingTabs = [...document.querySelectorAll(".pricing-tab")];
 const pricingPanels = [...document.querySelectorAll(".pricing-panel")];
+const pricingCards = [...document.querySelectorAll(".price-card, .plan-card")];
+const whatsappNumber = "5594992834466";
 let activeProject = 0;
 let carouselTimer;
 let ticking = false;
@@ -93,6 +95,22 @@ const sectionObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+pricingCards.forEach((card) => {
+  const title = card.querySelector("h3")?.innerText.trim();
+  const price = card.querySelector("strong")?.innerText.trim();
+  const unit = card.querySelector("small")?.innerText.trim();
+  if (!title || !price || card.querySelector(".price-choice")) return;
+
+  const message = `Olá, Cainã! Tenho interesse em escolher este serviço/plano: ${title} (${price}${unit ? ` - ${unit}` : ""}). Pode me passar mais detalhes?`;
+  const link = document.createElement("a");
+  link.className = "price-choice";
+  link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.innerHTML = '<span class="icon whatsapp" aria-hidden="true"></span> Escolher este';
+  card.appendChild(link);
+});
 
 pricingTabs.forEach((tab) => {
   tab.addEventListener("click", () => {

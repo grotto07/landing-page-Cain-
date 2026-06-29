@@ -805,6 +805,30 @@ p::selection {
   text-transform: uppercase;
 }
 
+.price-choice {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 20px;
+  border: 1px solid rgba(141, 44, 255, 0.7);
+  border-radius: 999px;
+  padding: 0 18px;
+  background: linear-gradient(90deg, rgba(141, 44, 255, 0.16), rgba(0, 163, 255, 0.12));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.price-choice:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 163, 255, 0.78);
+  box-shadow: 0 0 24px rgba(141, 44, 255, 0.18);
+}
+
 .pricing-cta {
   display: flex;
   align-items: center;
