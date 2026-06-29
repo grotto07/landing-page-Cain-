@@ -7,6 +7,8 @@ const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const heroArt = document.querySelector(".hero-art");
 const interactiveLogos = [...document.querySelectorAll(".interactive-logo")];
+const pricingTabs = [...document.querySelectorAll(".pricing-tab")];
+const pricingPanels = [...document.querySelectorAll(".pricing-panel")];
 let activeProject = 0;
 let carouselTimer;
 let ticking = false;
@@ -91,6 +93,24 @@ const sectionObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+pricingTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.pricingTab;
+    pricingTabs.forEach((item) => {
+      const isActive = item === tab;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-selected", String(isActive));
+    });
+    pricingPanels.forEach((panel) => {
+      const isActive = panel.dataset.pricingPanel === target;
+      panel.classList.toggle("is-active", isActive);
+      if (isActive) {
+        panel.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
+      }
+    });
+  });
+});
 
 if (canHover && !reduceMotion) {
   interactiveLogos.forEach((logo) => {
