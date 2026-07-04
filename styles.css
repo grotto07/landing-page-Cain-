@@ -318,6 +318,160 @@ p::selection {
   translate: 0 calc(var(--wave-shift, 0px) * -0.7);
 }
 
+.special-offer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 40px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(151, 83, 255, 0.34);
+  border-radius: var(--radius);
+  padding: 34px;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(141, 44, 255, 0.22), transparent 24rem),
+    radial-gradient(circle at 92% 74%, rgba(0, 163, 255, 0.14), transparent 20rem),
+    linear-gradient(130deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018));
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+}
+
+.special-offer::before {
+  position: absolute;
+  inset: auto -8% -36% 34%;
+  height: 220px;
+  border-top: 3px solid rgba(0, 163, 255, 0.62);
+  border-radius: 50%;
+  content: "";
+  opacity: 0.72;
+  transform: rotate(-8deg);
+  box-shadow: 0 -16px 42px rgba(141, 44, 255, 0.24);
+  pointer-events: none;
+}
+
+.special-offer-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.special-offer h2 {
+  margin-bottom: 18px;
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.special-offer p {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.special-price {
+  display: grid;
+  gap: 8px;
+  width: fit-content;
+  min-width: min(100%, 330px);
+  margin: 24px 0;
+  border: 1px solid rgba(141, 44, 255, 0.48);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.special-price span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.special-price s {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration-color: var(--purple);
+  text-decoration-thickness: 3px;
+}
+
+.special-price strong {
+  font-size: clamp(46px, 6vw, 72px);
+  line-height: 0.9;
+  background: linear-gradient(115deg, var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.special-price small {
+  color: var(--soft);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.special-list {
+  display: grid;
+  gap: 11px;
+  margin: 0 0 26px;
+  padding: 0;
+  list-style: none;
+}
+
+.special-list li {
+  position: relative;
+  padding-left: 34px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.special-list li::before {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  display: grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: #fff;
+  content: "✓";
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.special-offer-media {
+  position: relative;
+  z-index: 1;
+  justify-self: end;
+}
+
+.special-offer-media img {
+  width: min(420px, 100%);
+  border: 1px solid rgba(151, 83, 255, 0.38);
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 30px 78px rgba(0, 0, 0, 0.36), 0 0 34px rgba(141, 44, 255, 0.2);
+  transform: rotate(2deg);
+}
+
+.special-badge {
+  position: absolute;
+  z-index: 2;
+  right: -10px;
+  top: 18px;
+  border: 1px solid rgba(0, 163, 255, 0.58);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: rgba(2, 2, 6, 0.78);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 26px rgba(0, 163, 255, 0.24);
+  backdrop-filter: blur(12px);
+}
+
 .services {
   padding: 28px 0 38px;
 }
@@ -1048,6 +1202,7 @@ p::selection {
 
   .hero,
   .about,
+  .special-offer,
   .contact-card {
     grid-template-columns: 1fr;
   }
@@ -1068,6 +1223,14 @@ p::selection {
 
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .special-offer-media {
+    justify-self: center;
+  }
+
+  .special-offer-media img {
+    width: min(360px, 100%);
   }
 
   .about-stats {
@@ -1197,6 +1360,35 @@ p::selection {
 
   .services {
     padding-top: 18px;
+  }
+
+  .special-offer {
+    gap: 28px;
+    padding: 24px;
+  }
+
+  .special-offer h2 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .special-price {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .special-offer-media {
+    width: 100%;
+  }
+
+  .special-offer-media img {
+    width: min(100%, 330px);
+    margin: 0 auto;
+    transform: rotate(0deg);
+  }
+
+  .special-badge {
+    right: 10px;
+    top: 10px;
   }
 
   .service-card,
